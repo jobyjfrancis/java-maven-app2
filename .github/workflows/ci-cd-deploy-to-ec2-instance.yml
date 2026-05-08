@@ -41,7 +41,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
     - name: Read EC2 IP from terraform output
       run: echo "EC2_IP=$(cat terraform/ec2_public_ip)" >> $GITHUB_ENV
 
