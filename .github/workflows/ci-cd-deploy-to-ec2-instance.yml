@@ -1,4 +1,4 @@
-name: JMA CI Workflow
+name: JMA CI-CD Workflow
 
 on:
   workflow_dispatch:
