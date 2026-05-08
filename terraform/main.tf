@@ -3,10 +3,10 @@ variable "aws_region" {
   type        = string
 }
 
-variable "my_ip" {
-  description = "Public IP address allowed to SSH into the instance"
-  type        = string
-}
+# variable "my_ip" {
+#   description = "Public IP address allowed to SSH into the instance"
+#   type        = string
+# }
 
 variable "key_pair_name" {
   description = "Existing EC2 key pair name to use for SSH access"
@@ -32,7 +32,7 @@ resource "aws_security_group" "ssh_access" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${var.my_ip}"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
