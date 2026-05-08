@@ -3,6 +3,9 @@ name: JMA CI Workflow
 on:
   workflow_dispatch:
 
+env:
+  DOCKER_REPO: jobyjfrancis/devops-bootcamp
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,7 +23,7 @@ jobs:
       run: mvn clean package
 
     - name: Build Docker image
-      run: docker build -t jobyjfrancis/devops-bootcamp:jma-1.0 .
+      run: docker build -t ${{ env.DOCKER_REPO }}:jma-1.0 .
 
     - name: Login to Docker Hub
       uses: docker/login-action@v1
@@ -29,4 +32,4 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Push Docker image
-      run: docker push jobyjfrancis/devops-bootcamp:jma-1.0
+      run: docker push ${{ env.DOCKER_REPO }}:jma-1.0
