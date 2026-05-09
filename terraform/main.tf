@@ -66,7 +66,7 @@ resource "aws_instance" "ubuntu_docker" {
                 apt-get install -y docker.io
                 systemctl enable docker
                 systemctl start docker
-                usermod -aG docker ubuntu
+                sudo usermod -aG docker ubuntu
                 EOF
 
   tags = {
