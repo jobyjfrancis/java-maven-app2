@@ -54,5 +54,6 @@ jobs:
         username: ${{ env.EC2_USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           docker pull ${{ env.DOCKER_REPO }}:${{ env.IMAGE_TAG }}
           docker run -d --name ${{ env.APP_CONTAINER_NAME }} ${{ env.DOCKER_REPO }}:${{ env.IMAGE_TAG }}
