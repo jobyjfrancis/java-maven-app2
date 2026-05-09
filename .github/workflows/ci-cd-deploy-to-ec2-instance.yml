@@ -5,7 +5,7 @@ on:
 
 env:
   DOCKER_REPO: jobyjfrancis/devops-bootcamp
-  EC2_USER: ec2-user
+  EC2_USER: ubuntu
   IMAGE_TAG: jma-1.0
   APP_CONTAINER_NAME: jma-app
 
